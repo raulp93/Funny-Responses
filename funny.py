@@ -2,12 +2,15 @@ import time
 import random
 
 
+print("funny.py is running...")
+
 def choose(result):
     file_name = f"text-files\\{result}.txt"
     number = random.randint(1, 6)
     responses = open(file_name, "r").readlines()
     response = responses[number].strip()
-    print(response)
+    
+    return response
 
 
 def sendit(message):
@@ -22,6 +25,7 @@ while True:
         check = infile.read()
     
     if check == "send a message":
+        print("request received")
         open("request.txt", "w").close()
             
         with open("result.txt", "r") as infile:
@@ -37,6 +41,7 @@ while True:
             message = choose('draw')
 
         sendit(message)
+        print("request fulfilled")
 
         
 
